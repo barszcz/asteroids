@@ -2,7 +2,9 @@
   <head>
     <title>Asteroids, yo</title>
     <script charset="utf-8" src="./lib/util.js"></script>
-    <script charset="utf-8" src="./lib/keymaster.js"></script>
+    <script charset="utf-8" src="./vendor/keymaster.js"></script>
+    <script charset="utf-8" src="./vendor/victor.js"></script>
+    <script charset="utf-8" src="./lib/position.js"></script>
     <script charset="utf-8" src="./lib/movingObject.js"></script>
     <script charset="utf-8" src="./lib/bullet.js"></script>    
     <script charset="utf-8" src="./lib/asteroid.js"></script>
@@ -25,6 +27,8 @@
         canvas.height = game.DIM_Y;
         gameView.start();
       </script>
+
+      <div class="angle"></div>
 
   </body>
 </html>
