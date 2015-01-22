@@ -1,6 +1,7 @@
 <html>
   <head>
     <title>Asteroids, yo</title>
+
     <script charset="utf-8" src="./lib/util.js"></script>
     <script charset="utf-8" src="./vendor/keymaster.js"></script>
     <script charset="utf-8" src="./lib/vector.js"></script>
@@ -11,11 +12,26 @@
     <script charset="utf-8" src="./lib/game.js"></script>
     <script charset="utf-8" src="./lib/gameView.js"></script>
 
+    <style type="text/css">
+      strong {
+        display: block;
+      }
+
+      .group:after {
+        display: block;
+        clear: both;
+        content: '';
+
+      }
+
+    </style>
+
 
   </head>
   <body>
 
     <canvas id="game-canvas" style="border:solid 1px"></canvas>
+    <strong id="level"></strong>
 
       <script charset="utf-8">
         var canvas = document.getElementById("game-canvas");
@@ -26,8 +42,6 @@
         canvas.height = game.DIM_Y;
         gameView.start();
       </script>
-
-      <div class="angle"></div>
 
   </body>
 </html>
