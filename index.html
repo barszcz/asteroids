@@ -32,6 +32,7 @@
         height: 600px;
         left: 25%;
         top: 20px;
+        overflow: hidden;
       }
 
       .hud-container {
@@ -59,12 +60,11 @@
       #game-over {
         position: absolute;
         text-align: center;
-        font-size: 48px;
         letter-spacing: 3px;
         z-index: 2;
         width: 100%;
         top: 40%;
-        color: #d00;
+        left: 10000px;
 
         opacity: 0;
         transition: opacity 2s ease-in-out;
@@ -74,6 +74,22 @@
 
       #game-over.show {
         opacity: 1;
+        display: block;
+        left: 0;
+      }
+
+      #game-over h1 {
+        font-size: 48px;
+        color: #d00;
+
+      }
+
+      #game-over a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 24px;
+        top: -100px;
+        font-weight: bold;
       }
 
       #game-canvas {
@@ -94,17 +110,25 @@
         </section>
       </div>
     
-        <h1 id="game-over">GAME OVER</h1>
+        <div id="game-over">
+          <h1>GAME OVER</h1>
+          <a href="javascript:start();">Play Again</a>
+        </div>
         <canvas id="game-canvas" style="border:solid 1px;"></canvas>
     </main>
       <script charset="utf-8">
         var canvas = document.getElementById("game-canvas");
         var ctx = canvas.getContext("2d");
-        var game = new Asteroids.Game();
-        var gameView = new Asteroids.GameView(game, ctx);
-        canvas.width = game.DIM_X;
-        canvas.height = game.DIM_Y;
-        gameView.start();
+        function start () {
+          var game = new Asteroids.Game();
+          var gameView = new Asteroids.GameView(game, ctx);
+          canvas.width = game.DIM_X;
+          canvas.height = game.DIM_Y;
+          gameView.start();
+          document.getElementById('game-over').className = '';
+          
+        }
+        start();
       </script>
 
   </body>
